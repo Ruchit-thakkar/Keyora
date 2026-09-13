@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-surface: #fafafa;
+  --bg-card: #f4f4f5;
+  --bg-input: #ffffff;
+  --border-subtle: #e4e4e7;
+  --border-focus: #18181b;
+  --text-primary: #09090b;
+  --text-muted: #71717a;
+  --text-dim: #a1a1aa;
+  
+  --rgb-accent-gradient: linear-gradient(90deg, #ff0055 0%, #00e5ff 50%, #ffe600 100%);
+  --rgb-cyan: #00e5ff;
+  --rgb-magenta: #ff0055;
+  --rgb-yellow: #ffe600;
+}
+
+.dark {
+  --bg-primary: #000000;
+  --bg-surface: #0a0a0a;
+  --bg-card: #121212;
+  --bg-input: #171717;
+  --border-subtle: #222222;
+  --border-focus: #52525b;
+  --text-primary: #ffffff;
+  --text-muted: #a1a1aa;
+  --text-dim: #52525b;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Monospace styling */
+.font-mono-code {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Micro chromatic RGB edge */
+.rgb-border-top {
+  position: relative;
+}
+.rgb-border-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--rgb-accent-gradient);
+  border-radius: 9999px 9999px 0 0;
+}
+
+.rgb-glow-hover:hover {
+  box-shadow: 0 0 25px -5px rgba(0, 229, 255, 0.15), 0 0 10px -2px rgba(255, 0, 85, 0.1);
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-dim);
+}
+
+/* Number input spinners hide */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
