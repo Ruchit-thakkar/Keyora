@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ThemeToggle } from "./ThemeToggle";
 import { Shield, Lock } from "lucide-react";
 import { usePin } from "@/context/PinContext";
@@ -12,9 +13,15 @@ export function Header() {
   return (
     <header className="w-full border-b border-zinc-200 dark:border-[#1e1e1e] bg-white/80 dark:bg-black/80 backdrop-blur-md sticky top-0 z-30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-        <Link href="/home" className="flex items-center gap-2 group select-none">
-          <div className="w-7 h-7 rounded-lg bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 flex items-center justify-center font-bold text-xs shadow-sm">
-            K
+        <Link href="/home" className="flex items-center gap-2.5 group select-none">
+          <div className="relative w-7 h-7 rounded-lg overflow-hidden shadow-sm shrink-0 border border-zinc-200 dark:border-zinc-800">
+            <Image
+              src="/logo.png"
+              alt="Keyora Logo"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
           <div className="flex items-baseline gap-1.5">
             <span className="font-bold text-base tracking-tight text-zinc-950 dark:text-white">

@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { usePin } from "@/context/PinContext";
@@ -38,8 +39,14 @@ export function Sidebar() {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <Link href="/home" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 flex items-center justify-center font-bold text-sm shadow-md">
-              K
+            <div className="relative w-8 h-8 rounded-xl overflow-hidden shadow-md shrink-0 border border-zinc-200 dark:border-zinc-800">
+              <Image
+                src="/logo.png"
+                alt="Keyora Logo"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
             <div>
               <h1 className="font-bold text-base tracking-tight text-zinc-950 dark:text-white leading-none">

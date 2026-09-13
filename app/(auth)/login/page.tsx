@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { usePin } from "@/context/PinContext";
@@ -72,8 +73,14 @@ export default function LoginPage() {
       {/* Top Bar with brand and theme toggle */}
       <div className="max-w-md w-full mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 flex items-center justify-center font-bold text-sm shadow-md">
-            K
+          <div className="relative w-8 h-8 rounded-xl overflow-hidden shadow-md shrink-0 border border-zinc-200 dark:border-zinc-800">
+            <Image
+              src="/logo.png"
+              alt="Keyora Logo"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
           <span className="font-bold text-lg tracking-tight">Keyora</span>
         </Link>
